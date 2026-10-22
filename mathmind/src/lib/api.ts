@@ -129,5 +129,5 @@ async function httpError(res: Response, provider: string): Promise<Error> {
     403: 'Access forbidden — check your key permissions.',
     429: 'Rate limited — wait a moment and retry.',
   }
-  return new Error(`${provider} error ${res.status}: ${hints[res.status] ?? detail || res.statusText}`)
+  return new Error(`${provider} error ${res.status}: ${hints[res.status] ?? (detail || res.statusText)}`)
 }
