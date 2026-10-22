@@ -11,7 +11,7 @@ export function quickCalculate(expr: string): CalcResult {
   try {
     const node = compile(expr)
     // Provide no scope; mathjs blocks dangerous constructs by design.
-    const result = node.eval({})
+    const result = node.evaluate({})
     if (result === undefined) return { ok: false, text: 'No result.' }
     const formatted = formatResult(result)
     return { ok: true, text: `${expr.trim()} = ${formatted}` }
